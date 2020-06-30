@@ -2,7 +2,7 @@ apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
  name: staging-cron-sender
-# namespace: staging
+ namespace: staging
 spec:
  schedule: "*/3 * * * *" # https://crontab.guru/ (convert from timezone master gke to your timezone)
  failedJobsHistoryLimit: 3
@@ -13,7 +13,7 @@ spec:
      template:
        spec:
          containers:
-         - name: staging-sender
+         - name: staging-cron-sender
            image: alpine:3
            imagePullPolicy: IfNotPresent
            args:
