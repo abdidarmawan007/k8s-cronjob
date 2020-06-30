@@ -1,0 +1,30 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+ name: staging-cron-sender
+# namespace: staging
+spec:
+ schedule: "*/3 * * * *" # https://crontab.guru/ (convert from timezone master gke to your timezone)
+ failedJobsHistoryLimit: 3
+ successfulJobsHistoryLimit: 1
+ concurrencyPolicy: Allow # Allow (default): The cron job allows concurrently running jobs
+ jobTemplate:
+   spec:
+     template:
+       spec:
+         containers:
+         - name: staging-sender
+           image: alpine:3
+           imagePullPolicy: IfNotPresent
+           args:
+            - /bin/sh
+            - -c
+            - echo Sending information to API/database 
+           resources:
+            requests:
+               cpu: "300m"
+               memory: "300Mi"
+            limits:
+               cpu: "600m"
+               memory: "800Mi"
+         restartPolicy: OnFailure        
