@@ -2,6 +2,10 @@
 
 kubectl apply -f cronjobs.yaml
 
+kubectl get pods -n staging
+```
+staging-cron-sender-1593494100-c9tqh    0/1     Completed   0          80s
+```
 
 kubectl get cronjob -n staging
 ```
