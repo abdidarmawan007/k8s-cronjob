@@ -4,6 +4,7 @@ metadata:
  name: staging-cron-sender
  namespace: staging
 spec:
+ #schedule: "0 5 * * *" # at 12 noon Jakarta timezone
  schedule: "*/3 * * * *" # https://crontab.guru/ (convert from timezone master gke to your timezone)
  failedJobsHistoryLimit: 3
  successfulJobsHistoryLimit: 1
