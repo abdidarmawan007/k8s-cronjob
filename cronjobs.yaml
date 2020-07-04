@@ -4,8 +4,8 @@ metadata:
  name: staging-cron-sender
  namespace: staging
 spec:
- #schedule: "0 5 * * *" # at 12 noon Jakarta timezone
- schedule: "*/3 * * * *" # https://crontab.guru/ (convert from timezone master gke to your timezone)
+ #schedule: "0 5 * * *" # at 12 noon Jakarta timezone, # https://crontab.guru/ (convert from timezone master gke to your timezone)
+ schedule: "*/3 * * * *" # example every 3 minute
  failedJobsHistoryLimit: 3
  successfulJobsHistoryLimit: 1
  concurrencyPolicy: Allow # Allow (default): The cron job allows concurrently running jobs
