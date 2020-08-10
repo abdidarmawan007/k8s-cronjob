@@ -24,3 +24,6 @@ staging-cron-sender-1593493740   1/1           2s         40s
 
 ### Error Cron logs in gcp stackdriver logging
 ![alt text](https://i.imgur.com/0bBtfw4.png)
+
+
+### you can create alert for error cron with send data gcp loggging to stackdriver metric and send alert to slack channel or sms
